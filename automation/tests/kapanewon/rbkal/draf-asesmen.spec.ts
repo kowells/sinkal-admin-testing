@@ -1,0 +1,50 @@
+import { test, expect } from '@playwright/test';
+
+test.use({
+  storageState: 'storageState.json'
+});
+
+test('test', async ({ page }) => {
+  await page.goto('/admin/assesment');
+  await page.getByRole('link', { name: 'Asesmen', exact: true }).click();
+  await page.getByRole('heading', { name: 'Assesmen RBKAL' }).click();
+  await page.getByRole('link', { name: ' Tambah Asesmen' }).click();
+  await page.getByRole('heading', { name: 'Lembar Kerja Asesmen' }).click();
+  await page.getByRole('combobox').selectOption('369');
+  await page.getByPlaceholder('YYYY').click();
+  await page.getByPlaceholder('YYYY').fill('2028');
+  await page.getByRole('button', { name: 'Kirim' }).click();
+  await page.getByText('...dan 72 baris lainnya belum').click();
+  await page.getByText('...dan 72 baris lainnya belum').click();
+  await page.getByText('Kriteria pada Nomor 1 Indikator 1 wajib diisi.').click();
+  await page.getByText('Kriteria pada Nomor 1 Indikator 2 wajib diisi.').click();
+  await page.getByText('Kriteria pada Nomor 1 Indikator 3 wajib diisi.').click();
+  await page.getByRole('radio', { name: 'Klasifikasi status IDM dalam dipertahankan dalam kategori Desa Mandiri. (Nilai' }).check();
+  await page.getByRole('row', { name: '1 Penguatan Pengelolaan Data' }).getByPlaceholder('Masukkan penjelasan...').click();
+  await page.getByRole('row', { name: '1 Penguatan Pengelolaan Data' }).getByPlaceholder('Masukkan penjelasan...').fill('test');
+  await page.getByRole('row', { name: '1 Penguatan Pengelolaan Data' }).getByPlaceholder('Masukkan rekomendasi...').click();
+  await page.getByRole('row', { name: '1 Penguatan Pengelolaan Data' }).getByPlaceholder('Masukkan rekomendasi...').fill('test');
+  await page.getByRole('button', { name: 'Kirim' }).click();
+  await page.getByRole('radio', { name: 'Kondisi desa pada tahun n-1 berdasarkan aplikasi Prodeskel dalam kategori Swakarya (Nilai: 3)', exact: true }).check();
+  await page.getByRole('button', { name: 'Kirim' }).click();
+  await page.getByRole('button', { name: 'Simpan Draf' }).click();
+  await page.getByRole('heading', { name: 'Berhasil!' }).click();
+  await page.getByRole('button', { name: 'OK' }).click();
+  await page.getByRole('link', { name: ' Lihat & Edit' }).first().click();
+  await page.getByRole('row', { name: 'Pemutakhiran data Profil Kalurahan (Prodeskel) Kondisi desa pada tahun n-1' }).getByPlaceholder('Masukkan penjelasan...').click();
+  await page.getByRole('row', { name: 'Pemutakhiran data Profil Kalurahan (Prodeskel) Kondisi desa pada tahun n-1' }).getByPlaceholder('Masukkan penjelasan...').fill('test edit');
+  await page.getByRole('row', { name: '1 Penguatan Pengelolaan Data' }).getByPlaceholder('Masukkan rekomendasi...').click();
+  await page.getByRole('row', { name: '1 Penguatan Pengelolaan Data' }).getByPlaceholder('Masukkan rekomendasi...').fill('test edit');
+  await page.getByRole('button', { name: 'Simpan Draf' }).click();
+  await page.getByRole('heading', { name: 'Berhasil!' }).click();
+  await page.getByRole('button', { name: 'OK' }).click();
+  await page.getByRole('button', { name: 'Simpan Draf' }).click();
+  await page.getByRole('button', { name: 'OK' }).click();
+  await page.getByRole('link', { name: 'Asesmen' }).click();
+  await page.getByRole('link', { name: ' Lihat & Edit' }).first().click();
+  await page.getByRole('link', { name: 'Kembali' }).click();
+  await page.getByRole('row', { name: '1 Sardonoharjo 2028 TAHUNAN ' }).getByRole('button').click();
+  await page.getByRole('button', { name: 'Tutup' }).click();
+  await page.getByRole('row', { name: '1 Sardonoharjo 2028 TAHUNAN ' }).getByRole('button').click();
+  await page.getByRole('button', { name: 'Iya, hapus' }).click();
+});
