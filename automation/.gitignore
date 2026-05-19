@@ -9,3 +9,4 @@ node_modules/
 /playwright/.auth/
 /tests/setup
 /storage-state
+/.env

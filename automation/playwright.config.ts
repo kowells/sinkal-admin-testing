@@ -1,5 +1,7 @@
 import { defineConfig, devices } from '@playwright/test';
+import dotenv from 'dotenv';
 
+dotenv.config();
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -36,12 +38,20 @@ export default defineConfig({
     screenshot: 'only-on-failure',
 
 
-    baseURL: 'https://sinkal.jogjaprov.go.id',
+    baseURL: process.env.BASE_URL,
     // baseURL: 'http://sinkal.stechoq.com',
   },
 
   /* Configure projects for major browsers */
   projects: [
+
+    {
+      name: 'public',
+      testDir: './tests/shared',
+      testMatch: [
+        'tests/shared/login.spec.ts',
+      ],
+    },
 
     {
       name: 'setup-kalurahan',
@@ -114,6 +124,8 @@ export default defineConfig({
       },
       dependencies: ['setup-provinsi'],
     },
+
+
 
     // {
     //   name: 'chromium',
