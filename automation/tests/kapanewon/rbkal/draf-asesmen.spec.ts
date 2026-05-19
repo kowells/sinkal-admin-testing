@@ -1,16 +1,12 @@
 import { test, expect } from '@playwright/test';
 
-test.use({
-  storageState: 'storageState.json'
-});
-
 test('test', async ({ page }) => {
   await page.goto('/admin/assesment');
   await page.getByRole('link', { name: 'Asesmen', exact: true }).click();
   await page.getByRole('heading', { name: 'Assesmen RBKAL' }).click();
   await page.getByRole('link', { name: ' Tambah Asesmen' }).click();
   await page.getByRole('heading', { name: 'Lembar Kerja Asesmen' }).click();
-  await page.getByRole('combobox').selectOption('369');
+  await page.getByRole('combobox').selectOption('9901');
   await page.getByPlaceholder('YYYY').click();
   await page.getByPlaceholder('YYYY').fill('2028');
   await page.getByRole('button', { name: 'Kirim' }).click();
@@ -43,8 +39,8 @@ test('test', async ({ page }) => {
   await page.getByRole('link', { name: 'Asesmen' }).click();
   await page.getByRole('link', { name: ' Lihat & Edit' }).first().click();
   await page.getByRole('link', { name: 'Kembali' }).click();
-  await page.getByRole('row', { name: '1 Sardonoharjo 2028 TAHUNAN ' }).getByRole('button').click();
+  await page.getByRole('row', { name: '1 kalurahan1-testing 2028 TAHUNAN ' }).getByRole('button').click();
   await page.getByRole('button', { name: 'Tutup' }).click();
-  await page.getByRole('row', { name: '1 Sardonoharjo 2028 TAHUNAN ' }).getByRole('button').click();
+  await page.getByRole('row', { name: '1 kalurahan1-testing 2028 TAHUNAN ' }).getByRole('button').click();
   await page.getByRole('button', { name: 'Iya, hapus' }).click();
 });

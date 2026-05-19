@@ -1,9 +1,5 @@
 import { test, expect } from '@playwright/test';
 
-// test.use({
-//   storageState: 'storageState.json'
-// });
-
 test('test', async ({ page }) => {
   await page.goto('/admin/siskeudes');
   await page.getByRole('link', { name: ' APBKAL' }).click();
@@ -13,10 +9,10 @@ test('test', async ({ page }) => {
   await page.getByRole('heading', { name: 'Upload Laporan Siskeudes' }).click();
   await page.getByRole('button', { name: ' Tambah' }).click();
   await page.getByRole('heading', { name: 'Tambah Data Laporan Siskeudes' }).click();
-  await page.locator('#kecamatan').selectOption('01999002');
+  await page.locator('#kecamatan').selectOption('01999001');
   await page.locator('#kelurahan').selectOption('9902');
   await page.getByRole('dialog', { name: 'Tambah Data Laporan Siskeudes' }).getByPlaceholder('Tahun').click();
-  await page.getByRole('dialog', { name: 'Tambah Data Laporan Siskeudes' }).getByPlaceholder('Tahun').fill('2026');
+  await page.getByRole('dialog', { name: 'Tambah Data Laporan Siskeudes' }).getByPlaceholder('Tahun').fill('2025');
   await page.getByRole('dialog', { name: 'Tambah Data Laporan Siskeudes' }).locator('input[name="dokumen"]').click();
   await page.getByRole('dialog', { name: 'Tambah Data Laporan Siskeudes' }).locator('input[name="dokumen"]').setInputFiles('assets/apbkal_awal.pdf');
   await page.getByRole('dialog', { name: 'Tambah Data Laporan Siskeudes' }).locator('input[name="dokumen_perubahan"]').click();

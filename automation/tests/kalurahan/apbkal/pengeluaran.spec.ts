@@ -1,20 +1,12 @@
 import { test, expect } from '@playwright/test';
 
-// test.use({
-//   storageState: 'storageState.json'
-// });
 
 test('test', async ({ page }) => {
   await page.goto('/admin/pengeluaran');
   // await page.getByRole('link', { name: ' APBKAL' }).click();
   // await page.getByRole('link', { name: 'Pengeluaran' }).click();
   await page.getByRole('heading', { name: 'Statistik Data Pengeluaran' }).click();
-  await page.locator('canvas').click({
-    position: {
-      x: 27,
-      y: 62
-    }
-  });
+
   await page.getByRole('button', { name: 'Tambah Toggle Dropdown' }).click();
   await page.getByRole('link', { name: 'Isi Formulir' }).click();
   await page.getByRole('heading', { name: 'Tambah Data Pengeluaran' }).click();
@@ -47,6 +39,16 @@ test('test', async ({ page }) => {
   await page.getByRole('dialog', { name: 'Tambah Data Pengeluaran' }).locator('input[name="7[realisasi]"]').click();
   await page.getByRole('dialog', { name: 'Tambah Data Pengeluaran' }).locator('input[name="7[realisasi]"]').fill('Rp. 500.000.0000');
   await page.getByRole('button', { name: 'Tambah Data' }).click();
+
+  await page.getByRole('link', { name: 'Pengeluaran' }).click();
+
+
+  await page.locator('canvas').click({
+    position: {
+      x: 27,
+      y: 62
+    }
+  });
   const tahun = '2026';
 
   await page.locator(`button.btn-edit[data-tahun="${tahun}"]`).click(); await page.getByRole('heading', { name: 'Ubah Data Pengeluaran' }).click();
@@ -61,7 +63,6 @@ test('test', async ({ page }) => {
   await page.getByRole('dialog', { name: 'Ubah Data Pengeluaran' }).locator('input[name="7[rencana]"]').click();
   await page.getByRole('dialog', { name: 'Ubah Data Pengeluaran' }).locator('input[name="7[rencana]"]').fill('Rp. 500.000.0000');
   await page.getByRole('button', { name: 'Ubah Data' }).click();
-
 
   await page.locator(`button.btn-hapus[data-tahun="${tahun}"]`).click();
   await page.getByRole('button', { name: 'Tutup' }).click();

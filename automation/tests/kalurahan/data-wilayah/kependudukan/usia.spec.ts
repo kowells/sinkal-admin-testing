@@ -1,11 +1,112 @@
 import { test, expect } from '@playwright/test';
 
-// test.use({
-//   storageState: 'storageState.json'
-// });
-
 test('test', async ({ page }) => {
   await page.goto('/admin/kependudukan/usia');
+  await page.getByRole('link', { name: ' Data Wilayah' }).click();
+  await page.getByRole('link', { name: ' Data Wilayah' }).click();
+  await page.getByRole('link', { name: 'Kependudukan' }).click();
   await page.getByRole('link', { name: 'Usia', exact: true }).click();
   await page.getByRole('heading', { name: 'Data Penduduk Berdasarkan Usia' }).click();
+  await page.getByRole('button', { name: 'Tambah Toggle Dropdown' }).click();
+  await page.getByText('Isi Formulir').click();
+  await page.getByRole('dialog', { name: 'Tambah Data Penduduk Per Usia' }).getByRole('combobox').selectOption('2024');
+  await page.locator('input[name="USIA_0_4[L]"]').fill('3');
+  await page.locator('input[name="USIA_0_4[P]"]').fill('4');
+  await page.locator('input[name="USIA_5_9[L]"]').fill('5');
+  await page.locator('input[name="USIA_5_9[P]"]').fill('4');
+  await page.locator('input[name="USIA_10_14[L]"]').fill('1');
+  await page.locator('input[name="USIA_10_14[P]"]').fill('2');
+  await page.locator('input[name="USIA_15_19[L]"]').fill('1');
+  await page.locator('input[name="USIA_15_19[P]"]').fill('2');
+  await page.locator('input[name="USIA_20_24[L]"]').fill('1');
+  await page.locator('input[name="USIA_20_24[P]"]').fill('1');
+  await page.locator('input[name="USIA_25_29[L]"]').fill('5');
+  await page.locator('input[name="USIA_25_29[P]"]').fill('3');
+  await page.locator('input[name="USIA_30_34[L]"]').fill('5');
+  await page.locator('input[name="USIA_30_34[P]"]').fill('5');
+  await page.locator('input[name="USIA_35_39[L]"]').fill('3');
+  await page.locator('input[name="USIA_35_39[P]"]').fill('6');
+  await page.locator('input[name="USIA_40_44[L]"]').fill('3');
+  await page.locator('input[name="USIA_40_44[P]"]').fill('78');
+  await page.locator('input[name="USIA_45_49[L]"]').fill('5');
+  await page.locator('input[name="USIA_45_49[P]"]').fill('6');
+  await page.locator('input[name="USIA_50_54[L]"]').fill('90');
+  await page.locator('input[name="USIA_50_54[P]"]').fill('3');
+  await page.locator('input[name="USIA_55_59[L]"]').fill('5');
+  await page.locator('input[name="USIA_55_59[P]"]').fill('5');
+  await page.locator('input[name="USIA_60_64[L]"]').fill('3');
+  await page.locator('input[name="USIA_60_64[P]"]').fill('3');
+  await page.locator('input[name="USIA_65_69[L]"]').fill('2');
+  await page.locator('input[name="USIA_65_69[P]"]').fill('2');
+  await page.locator('input[name="USIA_70_74[L]"]').fill('0');
+  await page.locator('input[name="USIA_70_74[P]"]').fill('0');
+  await page.locator('input[name="USIA_75_79[L]"]').fill('0');
+  await page.locator('input[name="USIA_75_79[P]"]').fill('0');
+  await page.locator('input[name="USIA_80[L]"]').fill('0');
+  await page.locator('input[name="USIA_80[P]"]').fill('0');
+  await page.getByRole('button', { name: 'Tambah Data' }).click();
+  await page.locator('canvas').click({
+    position: {
+      x: 49,
+      y: 58
+    }
+  });
+  await page.getByRole('button', { name: 'Tambah Toggle Dropdown' }).click();
+  await page.getByText('Isi Formulir').click();
+  await page.getByRole('dialog', { name: 'Tambah Data Penduduk Per Usia' }).getByRole('combobox').selectOption('2025');
+  await page.getByRole('dialog', { name: 'Tambah Data Penduduk Per Usia' }).locator('input[name="USIA_0_4[L]"]').fill('1');
+  await page.getByRole('dialog', { name: 'Tambah Data Penduduk Per Usia' }).locator('input[name="USIA_0_4[P]"]').fill('0');
+  await page.getByRole('dialog', { name: 'Tambah Data Penduduk Per Usia' }).locator('input[name="USIA_5_9[L]"]').fill('3');
+  await page.getByRole('dialog', { name: 'Tambah Data Penduduk Per Usia' }).locator('input[name="USIA_5_9[P]"]').fill('3');
+  await page.getByRole('dialog', { name: 'Tambah Data Penduduk Per Usia' }).locator('input[name="USIA_10_14[L]"]').fill('6');
+  await page.getByRole('dialog', { name: 'Tambah Data Penduduk Per Usia' }).locator('input[name="USIA_10_14[P]"]').fill('6');
+  await page.getByRole('dialog', { name: 'Tambah Data Penduduk Per Usia' }).locator('input[name="USIA_15_19[L]"]').fill('5');
+  await page.getByRole('dialog', { name: 'Tambah Data Penduduk Per Usia' }).locator('input[name="USIA_15_19[P]"]').fill('3');
+  await page.getByRole('dialog', { name: 'Tambah Data Penduduk Per Usia' }).locator('input[name="USIA_20_24[L]"]').fill('9');
+  await page.getByRole('dialog', { name: 'Tambah Data Penduduk Per Usia' }).locator('input[name="USIA_20_24[P]"]').fill('9');
+  await page.getByRole('dialog', { name: 'Tambah Data Penduduk Per Usia' }).locator('input[name="USIA_25_29[L]"]').fill('11');
+  await page.getByRole('dialog', { name: 'Tambah Data Penduduk Per Usia' }).locator('input[name="USIA_25_29[P]"]').fill('11');
+  await page.getByRole('dialog', { name: 'Tambah Data Penduduk Per Usia' }).locator('input[name="USIA_30_34[L]"]').fill('12');
+  await page.getByRole('dialog', { name: 'Tambah Data Penduduk Per Usia' }).locator('input[name="USIA_30_34[P]"]').fill('15');
+  await page.getByRole('dialog', { name: 'Tambah Data Penduduk Per Usia' }).locator('input[name="USIA_35_39[L]"]').fill('3');
+  await page.getByRole('dialog', { name: 'Tambah Data Penduduk Per Usia' }).locator('input[name="USIA_35_39[P]"]').fill('7');
+  await page.getByRole('dialog', { name: 'Tambah Data Penduduk Per Usia' }).locator('input[name="USIA_40_44[L]"]').fill('9');
+  await page.getByRole('dialog', { name: 'Tambah Data Penduduk Per Usia' }).locator('input[name="USIA_40_44[P]"]').fill('5');
+  await page.getByRole('dialog', { name: 'Tambah Data Penduduk Per Usia' }).locator('input[name="USIA_45_49[L]"]').fill('6');
+  await page.getByRole('dialog', { name: 'Tambah Data Penduduk Per Usia' }).locator('input[name="USIA_45_49[P]"]').fill('5');
+  await page.getByRole('dialog', { name: 'Tambah Data Penduduk Per Usia' }).locator('input[name="USIA_50_54[L]"]').fill('4');
+  await page.getByRole('dialog', { name: 'Tambah Data Penduduk Per Usia' }).locator('input[name="USIA_50_54[P]"]').fill('4');
+  await page.getByRole('dialog', { name: 'Tambah Data Penduduk Per Usia' }).locator('input[name="USIA_55_59[L]"]').fill('4');
+  await page.getByRole('dialog', { name: 'Tambah Data Penduduk Per Usia' }).locator('input[name="USIA_80[L]"]').fill('1');
+  await page.getByRole('dialog', { name: 'Tambah Data Penduduk Per Usia' }).locator('input[name="USIA_80[P]"]').fill('3');
+  await page.getByRole('dialog', { name: 'Tambah Data Penduduk Per Usia' }).locator('input[name="USIA_75_79[L]"]').fill('2');
+  await page.getByRole('dialog', { name: 'Tambah Data Penduduk Per Usia' }).locator('input[name="USIA_75_79[P]"]').fill('1');
+  await page.getByRole('dialog', { name: 'Tambah Data Penduduk Per Usia' }).locator('input[name="USIA_70_74[L]"]').fill('1');
+  await page.getByRole('dialog', { name: 'Tambah Data Penduduk Per Usia' }).locator('input[name="USIA_70_74[P]"]').fill('1');
+  await page.getByRole('dialog', { name: 'Tambah Data Penduduk Per Usia' }).locator('input[name="USIA_65_69[L]"]').fill('0');
+  await page.getByRole('dialog', { name: 'Tambah Data Penduduk Per Usia' }).locator('input[name="USIA_65_69[P]"]').fill('0');
+  await page.getByRole('dialog', { name: 'Tambah Data Penduduk Per Usia' }).locator('input[name="USIA_60_64[L]"]').fill('6');
+  await page.getByRole('dialog', { name: 'Tambah Data Penduduk Per Usia' }).locator('input[name="USIA_55_59[P]"]').fill('5');
+  await page.getByRole('dialog', { name: 'Tambah Data Penduduk Per Usia' }).locator('input[name="USIA_60_64[P]"]').fill('7');
+  await page.getByRole('button', { name: 'Tambah Data' }).click();
+  await page.locator('select[name="filterTahun"]').selectOption('2024');
+
+  await page.goto('https://sinkal.jogjaprov.go.id/admin/kependudukan/usia/2024?qw=');
+  await page.getByRole('button', { name: ' Ubah' }).click();
+  await page.getByRole('dialog', { name: 'Ubah Data Penduduk Per Usia' }).locator('input[name="USIA_70_74[L]"]').click();
+  await page.getByRole('dialog', { name: 'Ubah Data Penduduk Per Usia' }).locator('input[name="USIA_70_74[L]"]').fill('4');
+  await page.getByRole('dialog', { name: 'Ubah Data Penduduk Per Usia' }).locator('input[name="USIA_75_79[P]"]').click();
+  await page.getByRole('dialog', { name: 'Ubah Data Penduduk Per Usia' }).locator('input[name="USIA_75_79[P]"]').fill('3');
+  await page.getByRole('button', { name: 'Ubah Data' }).click();
+  await page.getByRole('button', { name: ' Hapus' }).click();
+  await page.getByRole('button', { name: 'Tutup' }).click();
+  await page.locator('select[name="filterTahun"]').selectOption('2025');
+  await page.goto('https://sinkal.jogjaprov.go.id/admin/kependudukan/usia/2025?qw=');
+  await page.getByRole('button', { name: ' Hapus' }).click();
+  await page.getByRole('button', { name: 'Iya, hapus' }).click();
+  await page.getByRole('link', { name: 'Usia', exact: true }).click();
+  await page.locator('select[name="filterTahun"]').selectOption('2024');
+  await page.goto('https://sinkal.jogjaprov.go.id/admin/kependudukan/usia/2024?qw=');
+  await page.getByRole('button', { name: ' Hapus' }).click();
+  await page.getByRole('button', { name: 'Iya, hapus' }).click();
 });
