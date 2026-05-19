@@ -1,17 +1,69 @@
 import { test, expect } from '@playwright/test';
 
-// test.use({
-//   storageState: 'storageState.json'
-// });
-
 test('test', async ({ page }) => {
   await page.goto('/admin/sarana-prasarana/pendidikan');
+  await page.getByRole('button', { name: 'Tambah Toggle Dropdown' }).click();
+  await page.getByRole('link', { name: 'Isi Formulir' }).click();
+  await page.getByRole('dialog', { name: 'Tambah Data Sarana Pendidikan' }).getByRole('combobox').selectOption('2023');
+  await page.getByRole('row', { name: 'Gedung Sekolah Paud' }).getByRole('spinbutton').click();
+  await page.getByRole('row', { name: 'Gedung Sekolah Paud' }).getByRole('spinbutton').fill('11');
+  await page.getByRole('row', { name: 'Gedung Sekolah TK' }).getByRole('spinbutton').click();
+  await page.getByRole('row', { name: 'Gedung Sekolah Paud' }).getByRole('spinbutton').click();
+  await page.getByRole('row', { name: 'Gedung Sekolah Paud' }).getByRole('spinbutton').fill('1');
+  await page.getByRole('row', { name: 'Gedung Sekolah TK' }).getByRole('spinbutton').click();
+  await page.getByRole('row', { name: 'Gedung Sekolah TK' }).getByRole('spinbutton').fill('1');
+  await page.getByRole('row', { name: 'Gedung Sekolah SD' }).getByRole('spinbutton').click();
+  await page.getByRole('row', { name: 'Gedung Sekolah SD' }).getByRole('spinbutton').fill('1');
+  await page.getByRole('row', { name: 'Gedung Sekolah SMP' }).getByRole('spinbutton').click();
+  await page.getByRole('row', { name: 'Gedung Sekolah SMP' }).getByRole('spinbutton').fill('1');
+  await page.getByRole('row', { name: 'Gedung Sekolah SMA' }).getByRole('spinbutton').click();
+  await page.getByRole('row', { name: 'Gedung Sekolah SMA' }).getByRole('spinbutton').fill('1');
+  await page.getByRole('row', { name: 'Gedung Perguruan Tinggi' }).getByRole('spinbutton').click();
+  await page.getByRole('row', { name: 'Gedung Perguruan Tinggi' }).getByRole('spinbutton').fill('1');
+  await page.getByRole('row', { name: 'Perpustakaan Desa' }).locator('input[name="18[jml]"]').click();
+  await page.getByRole('row', { name: 'Perpustakaan Desa' }).locator('input[name="18[jml]"]').fill('0');
+  await page.getByRole('row', { name: 'Pondok Pesantren' }).locator('input[name="19[jml]"]').click();
+  await page.getByRole('row', { name: 'Pondok Pesantren' }).locator('input[name="19[jml]"]').fill('1');
+  await page.getByRole('button', { name: 'Tambah Data' }).click();
+
+  await page.getByRole('button', { name: 'Tambah Toggle Dropdown' }).click();
+  await page.getByRole('link', { name: 'Isi Formulir' }).click();
+  await page.getByRole('dialog', { name: 'Tambah Data Sarana Pendidikan' }).getByRole('combobox').selectOption('2024');
+  await page.getByRole('row', { name: 'Gedung Sekolah Paud', exact: true }).getByRole('spinbutton').click();
+  await page.getByRole('row', { name: 'Gedung Sekolah Paud', exact: true }).getByRole('spinbutton').fill('3');
+  await page.getByRole('row', { name: 'Gedung Sekolah TK', exact: true }).getByRole('spinbutton').click();
+  await page.getByRole('row', { name: 'Gedung Sekolah TK', exact: true }).getByRole('spinbutton').fill('2');
+  await page.getByRole('row', { name: 'Gedung Sekolah SD', exact: true }).getByRole('spinbutton').click();
+  await page.getByRole('row', { name: 'Gedung Sekolah SD', exact: true }).getByRole('spinbutton').fill('2');
+  await page.getByRole('row', { name: 'Gedung Sekolah SMP', exact: true }).getByRole('spinbutton').click();
+  await page.getByRole('row', { name: 'Gedung Sekolah SMP', exact: true }).getByRole('spinbutton').fill('1');
+  await page.getByRole('row', { name: 'Gedung Perguruan Tinggi', exact: true }).getByRole('spinbutton').click();
+  await page.getByRole('row', { name: 'Gedung Sekolah SMA', exact: true }).getByRole('spinbutton').click();
+  await page.getByRole('row', { name: 'Gedung Sekolah SMA', exact: true }).getByRole('spinbutton').fill('0');
+  await page.getByRole('row', { name: 'Gedung Perguruan Tinggi', exact: true }).getByRole('spinbutton').click();
+  await page.getByRole('row', { name: 'Gedung Perguruan Tinggi', exact: true }).getByRole('spinbutton').fill('1');
+  await page.getByRole('dialog', { name: 'Tambah Data Sarana Pendidikan' }).locator('input[name="18[jml]"]').click();
+  await page.getByRole('dialog', { name: 'Tambah Data Sarana Pendidikan' }).locator('input[name="18[jml]"]').fill('1');
+  await page.getByRole('dialog', { name: 'Tambah Data Sarana Pendidikan' }).locator('input[name="19[jml]"]').click();
+  await page.getByRole('dialog', { name: 'Tambah Data Sarana Pendidikan' }).locator('input[name="19[jml]"]').fill('2');
+  await page.getByRole('button', { name: 'Tambah Data' }).click();
+  await page.locator('select[name="filterTahun"]').selectOption('2023');
+  await page.goto('https://sinkal.jogjaprov.go.id/admin/sarana-prasarana/pendidikan/2023?qw=');
+  await page.getByRole('button', { name: ' Ubah' }).click();
+  await page.getByRole('row', { name: 'Gedung Sekolah SD', exact: true }).getByRole('spinbutton').click();
+  await page.getByRole('row', { name: 'Gedung Sekolah SD', exact: true }).getByRole('spinbutton').click();
+  await page.getByRole('row', { name: 'Gedung Sekolah SD', exact: true }).getByRole('spinbutton').fill('3');
+  await page.getByRole('row', { name: 'Gedung Sekolah SMA', exact: true }).getByRole('spinbutton').click();
+  await page.getByRole('row', { name: 'Gedung Sekolah SMA', exact: true }).getByRole('spinbutton').fill('2');
+  await page.getByRole('button', { name: 'Ubah Data' }).click();
+  await page.locator('select[name="filterTahun"]').selectOption('2024');
+  await page.goto('https://sinkal.jogjaprov.go.id/admin/sarana-prasarana/pendidikan/2024?qw=');
+  await page.getByRole('button', { name: ' Hapus' }).click();
+  await page.getByRole('button', { name: 'Iya, hapus' }).click();
   await page.getByRole('link', { name: 'Pendidikan' }).click();
-  await page.getByRole('heading', { name: 'Data Sarana Pendidikan' }).click();
-  await page.locator('canvas').click({
-    position: {
-      x: 51,
-      y: 295
-    }
-  });
+
+  await page.locator('select[name="filterTahun"]').selectOption('2023');
+  await page.goto('https://sinkal.jogjaprov.go.id/admin/sarana-prasarana/pendidikan/2023?qw=');
+  await page.getByRole('button', { name: ' Hapus' }).click();
+  await page.getByRole('button', { name: 'Iya, hapus' }).click();
 });
