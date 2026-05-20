@@ -1,9 +1,5 @@
 import { test, expect } from '@playwright/test';
 
-// test.use({
-//   storageState: 'storageState.json'
-// });
-
 test('test', async ({ page }) => {
   await page.goto('/admin/data-lembaga');
   await page.getByRole('link', { name: ' Lembaga' }).click();
@@ -48,8 +44,8 @@ test('test', async ({ page }) => {
     has: page.locator('td', { hasText: /^lembaga test edit$/ })
   });
 
-  // await row2.getByRole('button', { name: /Hapus/ }).click();
-  // await page.getByRole('button', { name: 'Tutup' }).click();
-  // await row2.getByRole('button', { name: /Hapus/ }).click();
-  // await page.getByRole('button', { name: 'Iya, hapus' }).click();
+  await row2.getByRole('button', { name: /Hapus/ }).click();
+  await page.getByRole('button', { name: 'Tutup' }).click();
+  await row2.getByRole('button', { name: /Hapus/ }).click();
+  await page.getByRole('button', { name: 'Iya, hapus' }).click();
 });
