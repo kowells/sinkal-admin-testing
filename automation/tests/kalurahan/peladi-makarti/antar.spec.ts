@@ -1,9 +1,5 @@
 import { test, expect } from '@playwright/test';
 
-// test.use({
-//   storageState: 'storageState.json'
-// });
-
 test('test', async ({ page }) => {
   await page.goto('/admin/antar');
   await page.getByRole('link', { name: ' Peladi Makarti' }).click();
@@ -31,7 +27,7 @@ test('test', async ({ page }) => {
   await page.getByRole('button', { name: 'Tambah Data' }).click();
   await page.getByRole('heading', { name: 'Data Tamu Antar Kerja' }).click();
   await page
-    .getByRole('row', { name: '1112131415161717' })
+    .getByRole('row', { name: '1112131415161719' })
     .getByRole('link', { name: 'Edit' })
     .click();
   await page.getByRole('textbox', { name: 'Masukan Catatan' }).click();
@@ -41,12 +37,12 @@ test('test', async ({ page }) => {
   await page.locator('select[name="minat"]').selectOption('Masih di Indonesia (AKAD)');
   await page.getByRole('button', { name: 'Edit Data' }).click();
   await page
-    .getByRole('row', { name: '1112131415161717' })
+    .getByRole('row', { name: '1112131415161719' })
     .getByRole('button', { name: 'Hapus' })
     .click();
   await page.getByRole('button', { name: 'Tutup' }).click();
   await page
-    .getByRole('row', { name: '1112131415161717' })
+    .getByRole('row', { name: '1112131415161719' })
     .getByRole('button', { name: 'Hapus' })
     .click();
   await page.getByRole('button', { name: 'Iya, hapus' }).click();

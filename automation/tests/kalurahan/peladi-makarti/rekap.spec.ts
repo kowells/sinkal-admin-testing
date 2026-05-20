@@ -1,9 +1,5 @@
 import { test, expect } from '@playwright/test';
 
-// test.use({
-//   storageState: 'storageState.json'
-// });
-
 test('test', async ({ page }) => {
   await page.goto('/admin/peladi-makarti/rekap');
   await page.getByRole('link', { name: ' Peladi Makarti' }).click();
@@ -38,13 +34,17 @@ test('test', async ({ page }) => {
 
   await simpanBtn.click();
 
-  await page.getByRole('button', { name: ' Edit' }).nth(1).click();
+  const tahun = '2026';
+
+  await page.locator('tr', { hasText: tahun }).locator('button.btn-edit').click();
+  // await page.getByRole('button', { name: ' Edit' }).nth(1).click();
   await page.getByRole('heading', { name: 'Ubah Data' }).click();
   await page.getByRole('button', { name: 'Close' }).click();
-  await page.getByRole('button', { name: ' Edit' }).nth(1).click();
+  await page.locator('tr', { hasText: tahun }).locator('button.btn-edit').click();
   await page.getByRole('button', { name: 'Close' }).click();
-  await page.getByRole('button', { name: ' Hapus' }).nth(1).click();
+
+  await page.locator('tr', { hasText: tahun }).locator('button.btn-danger').click();
   await page.getByRole('button', { name: 'Tutup' }).click();
-  await page.getByRole('button', { name: ' Hapus' }).nth(1).click();
+  await page.locator('tr', { hasText: tahun }).locator('button.btn-danger').click();
   await page.getByRole('button', { name: 'Iya, hapus' }).click();
 });
