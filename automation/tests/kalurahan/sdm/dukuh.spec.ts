@@ -1,9 +1,5 @@
 import { test, expect } from '@playwright/test';
 
-// test.use({
-//   storageState: 'storageState.json'
-// });
-
 test('Dukuh Page', async ({ page }) => {
   await page.goto('/admin/ketua-pelaksana');
   await expect(page.getByText('Data Dukuh')).toBeVisible();

@@ -1,9 +1,5 @@
 import { test, expect } from '@playwright/test';
 
-// test.use({
-//   storageState: 'storageState.json'
-// });
-
 test('test', async ({ page }) => {
   await page.goto('/admin/bamuskal');
   await page.getByRole('button', { name: ' Tambah' }).click();
@@ -42,7 +38,6 @@ test('test', async ({ page }) => {
   const row = page.locator('tr', { hasText: 'test3' });
 
   await row.getByRole('button', { name: /Edit/ }).click();
-  // await page.getByRole('button', { name: ' Edit' }).click();
   await page.getByRole('textbox', { name: 'Nama Bamuskal' }).click();
   await page.getByRole('textbox', { name: 'Nama Bamuskal' }).fill('test edit');
   await page.getByRole('textbox', { name: 'Alamat' }).click();
@@ -53,10 +48,8 @@ test('test', async ({ page }) => {
     has: page.locator('td', { hasText: /^test edit$/ })
   });
 
-
   await row2.getByRole('button', { name: /Lihat/ }).click();
   await page.getByRole('button', { name: 'Close' }).click();
-
 
   await row2.getByRole('button', { name: /Hapus/ }).click();
   await page.getByRole('button', { name: 'Tutup' }).click();
