@@ -1,9 +1,5 @@
 import { test, expect } from '@playwright/test';
 
-// test.use({
-//   storageState: 'storageState.json'
-// });
-
 test('test', async ({ page }) => {
   await page.goto('/admin/wilayah/profil-kalurahan');
   await page.getByRole('link', { name: 'Profil Kalurahan' }).click();
@@ -29,7 +25,10 @@ test('test', async ({ page }) => {
   ]);
   await expect(page).toHaveURL(/profil-kalurahan/);
 
-  const downloadPromise = page.waitForEvent('download');
-  await page.getByRole('button', { name: ' Unduh' }).click();
-  const download = await downloadPromise;
+  const [download] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: /Unduh/i }).click()
+  ]);
+
+  expect(download.suggestedFilename()).toBeTruthy();
 });

@@ -1,9 +1,5 @@
 import { test, expect } from '@playwright/test';
 
-// test.use({
-//   storageState: 'storageState.json'
-// });
-
 test('test', async ({ page }) => {
   await page.goto('/admin/wilayah/luas-wilayah');
   await page.getByRole('link', { name: 'Luas Wilayah' }).click();
