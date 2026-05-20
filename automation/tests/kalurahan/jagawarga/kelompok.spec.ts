@@ -1,9 +1,5 @@
 import { test, expect } from '@playwright/test';
 
-// test.use({
-//   storageState: 'storageState.json'
-// });
-
 test('test', async ({ page }) => {
   await page.goto('/admin/kelompok');
   await page.getByRole('link', { name: ' Jagawarga' }).click();
@@ -11,7 +7,7 @@ test('test', async ({ page }) => {
   await page.getByRole('heading', { name: 'Data Kelompok Jagawarga' }).click();
   await page.getByRole('button', { name: ' Tambah' }).click();
   await page.getByRole('heading', { name: 'Tambah Data Kelompok Jagawarga' }).click();
-  await page.getByRole('dialog', { name: 'Tambah Data Kelompok Jagawarga' }).locator('#dukuh').selectOption('4837');
+  await page.getByRole('dialog', { name: 'Tambah Data Kelompok Jagawarga' }).locator('#dukuh').selectOption('4948');
   await page.getByRole('textbox', { name: 'Nama Kelompok' }).click();
   await page.getByRole('textbox', { name: 'Nama Kelompok' }).fill('awan mendung');
   const dialog = page.getByRole('dialog', { name: 'Tambah Data Kelompok Jagawarga' });
@@ -108,6 +104,5 @@ test('test', async ({ page }) => {
   await page.getByRole('button', { name: 'Tutup' }).click();
   await page.getByRole('button', { name: ' Hapus' }).first().click();
   await page.getByRole('button', { name: 'Iya, hapus' }).click();
-
 
 });
