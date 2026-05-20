@@ -1,15 +1,11 @@
 import { test, expect } from '@playwright/test';
 
-// test.use({
-//   storageState: 'storageState.json'
-// });
-
 test('test', async ({ page }) => {
   await page.goto('/admin/data-pengaduan');
   await page.getByRole('link', { name: ' Pengaduan' }).click();
   await page.getByRole('heading', { name: 'Data Pengaduan' }).click();
   const row = page.locator('tr', {
-    hasText: '1111111111111111'
+    hasText: '3404121111111111'
   });
   await row.getByRole('button', { name: /Lihat/ }).click();
   await page.getByRole('heading', { name: 'Detail Pengaduan' }).click();
